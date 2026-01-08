@@ -3,6 +3,7 @@ import Card from './components/Card.vue'
 import AIBarriersCard from './components/AIBarriersCard.vue'
 import OngoingTrials from './components/OngoingTrials.vue'
 import PendingFollowUp from './components/PendingFollowUp.vue'
+import SiteProgression from './components/SiteProgression.vue'
 </script>
 
 <template>
@@ -40,7 +41,7 @@ import PendingFollowUp from './components/PendingFollowUp.vue'
 
       <!-- Site Progression Section -->
       <section class="mb-6">
-        <Card title="Site Progression" />
+        <SiteProgression />
       </section>
 
       <!-- Metrics Section -->
