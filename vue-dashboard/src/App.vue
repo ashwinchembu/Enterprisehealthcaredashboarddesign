@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import Card from './components/Card.vue'
+import AIBarriersCard from './components/AIBarriersCard.vue'
+import OngoingTrials from './components/OngoingTrials.vue'
+import PendingFollowUp from './components/PendingFollowUp.vue'
 </script>
 
 <template>
@@ -53,13 +56,13 @@ import Card from './components/Card.vue'
 
       <!-- AI-Identified Potential Barriers -->
       <section class="mb-6">
-        <Card title="AI-Identified Potential Barriers" />
+        <AIBarriersCard />
       </section>
 
       <!-- Bottom Two-Column Layout -->
       <section class="grid grid-cols-1 gap-6 lg:grid-cols-2">
-        <Card title="Ongoing Clinical Trials" />
-        <Card title="Pending Follow-up's" />
+        <OngoingTrials />
+        <PendingFollowUp />
       </section>
     </div>
   </div>
