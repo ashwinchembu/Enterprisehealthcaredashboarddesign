@@ -1,8 +1,5 @@
 <script setup lang="ts">
-import MetricCard from './components/MetricCard.vue'
 import Card from './components/Card.vue'
-import AIBarriersCard from './components/AIBarriersCard.vue'
-import SiteProgressStepper from './components/SiteProgressStepper.vue'
 </script>
 
 <template>
@@ -40,94 +37,29 @@ import SiteProgressStepper from './components/SiteProgressStepper.vue'
 
       <!-- Site Progression Section -->
       <section class="mb-6">
-        <SiteProgressStepper />
+        <Card title="Site Progression" />
       </section>
 
       <!-- Metrics Section -->
       <section class="mb-8">
         <div class="flex gap-4 flex-wrap">
-          <MetricCard icon="📊" label="Active Trials" />
-          <MetricCard icon="👥" label="Enrolled Patients" />
-          <MetricCard icon="📈" label="Enrollment Rate" />
-          <MetricCard icon="⏱️" label="Avg. Time to Enroll" />
-          <MetricCard icon="⚡" label="Screening Failures" />
+          <Card title="Active Trials" class="flex-1 min-w-[180px]" />
+          <Card title="Enrolled Patients" class="flex-1 min-w-[180px]" />
+          <Card title="Enrollment Rate" class="flex-1 min-w-[180px]" />
+          <Card title="Avg. Time to Enroll" class="flex-1 min-w-[180px]" />
+          <Card title="Screening Failures" class="flex-1 min-w-[180px]" />
         </div>
       </section>
 
       <!-- AI-Identified Potential Barriers -->
       <section class="mb-6">
-        <AIBarriersCard />
+        <Card title="AI-Identified Potential Barriers" />
       </section>
 
       <!-- Bottom Two-Column Layout -->
       <section class="grid grid-cols-1 gap-6 lg:grid-cols-2">
-        <div class="space-y-6">
-          <Card title="Ongoing Clinical Trials">
-            <div class="space-y-4">
-              <div v-for="i in 4" :key="i" class="rounded-xl border border-slate-200 p-4 transition-all hover:border-blue-300 hover:shadow-sm">
-                <div class="flex items-start gap-3">
-                  <div class="rounded-xl bg-gradient-to-br from-purple-50 to-purple-100 p-2.5">
-                    <span class="text-lg">📄</span>
-                  </div>
-                  <div class="flex-1 min-w-0">
-                    <div class="font-semibold text-slate-900 mb-1">Trial {{ i }}</div>
-                    <div class="text-sm text-slate-500 mb-2">Protocol: ---</div>
-                    <div class="flex items-center gap-2 flex-wrap">
-                      <span class="text-xs text-slate-500 bg-slate-100 px-2.5 py-1 rounded-full font-medium">
-                        Phase --
-                      </span>
-                      <span class="text-xs text-blue-700 bg-blue-100 px-2.5 py-1 rounded-full font-medium">
-                        Status
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </Card>
-        </div>
-
-        <Card title="Pending Follow-up's" subtitle="Tasks that require your attention for this account.">
-          <!-- Table Header -->
-          <div class="border-b border-slate-200 pb-3 mb-3">
-            <div class="grid grid-cols-12 gap-4 text-xs font-semibold text-slate-500 uppercase tracking-wider">
-              <div class="col-span-4">Title</div>
-              <div class="col-span-2">Status</div>
-              <div class="col-span-2">Due Date</div>
-              <div class="col-span-2">Priority</div>
-              <div class="col-span-2">Assigned</div>
-            </div>
-          </div>
-
-          <!-- Empty Task Rows -->
-          <div v-for="i in 3" :key="i" class="py-3 border-b border-slate-100 last:border-b-0">
-            <div class="grid grid-cols-12 gap-4 items-center">
-              <div class="col-span-4">
-                <div class="font-medium text-slate-900 text-sm mb-1">Task {{ i }}</div>
-                <div class="text-xs text-slate-500">Description placeholder...</div>
-              </div>
-              <div class="col-span-2">
-                <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium border border-orange-300 text-orange-700 bg-orange-50">
-                  To Do
-                </span>
-              </div>
-              <div class="col-span-2">
-                <div class="flex items-center gap-2 text-sm text-slate-600">
-                  <span>📅</span>
-                  --/--/----
-                </div>
-              </div>
-              <div class="col-span-2">
-                <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-red-100 text-red-700">
-                  High
-                </span>
-              </div>
-              <div class="col-span-2 text-sm text-slate-500">
-                N/A
-              </div>
-            </div>
-          </div>
-        </Card>
+        <Card title="Ongoing Clinical Trials" />
+        <Card title="Pending Follow-up's" />
       </section>
     </div>
   </div>
