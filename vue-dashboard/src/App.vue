@@ -4,6 +4,7 @@ import AIBarriersCard from './components/AIBarriersCard.vue'
 import OngoingTrials from './components/OngoingTrials.vue'
 import PendingFollowUp from './components/PendingFollowUp.vue'
 import SiteProgression from './components/SiteProgression.vue'
+import MetricCard from './components/MetricCard.vue'
 </script>
 
 <template>
@@ -47,11 +48,39 @@ import SiteProgression from './components/SiteProgression.vue'
       <!-- Metrics Section -->
       <section class="mb-8">
         <div class="flex gap-4 flex-wrap">
-          <Card title="Active Trials" class="flex-1 min-w-[180px]" />
-          <Card title="Enrolled Patients" class="flex-1 min-w-[180px]" />
-          <Card title="Enrollment Rate" class="flex-1 min-w-[180px]" />
-          <Card title="Avg. Time to Enroll" class="flex-1 min-w-[180px]" />
-          <Card title="Screening Failures" class="flex-1 min-w-[180px]" />
+          <MetricCard 
+            icon="pulse" 
+            label="Active Trials" 
+            :value="12" 
+            deltaText="+2" 
+            deltaType="up" 
+          />
+          <MetricCard 
+            icon="users" 
+            label="Enrolled Patients" 
+            :value="247" 
+            deltaText="+18%" 
+            deltaType="up" 
+          />
+          <MetricCard 
+            icon="trend" 
+            label="Enrollment Rate" 
+            value="87%" 
+            deltaText="+5%" 
+            deltaType="up" 
+          />
+          <MetricCard 
+            icon="clock" 
+            label="Avg. Time to Enroll" 
+            value="12 days" 
+            deltaText="-3 days" 
+            deltaType="down" 
+          />
+          <MetricCard 
+            icon="alert" 
+            label="Screening Failures" 
+            :value="34" 
+          />
         </div>
       </section>
 
