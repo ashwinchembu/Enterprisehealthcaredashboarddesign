@@ -67,10 +67,12 @@ const deltaClass = computed(() => {
   background: #fff;
   border: 1px solid #eef1f6;
   border-radius: 18px;
-  padding: 22px 24px 20px;
-  box-shadow: 0 4px 12px rgba(16, 24, 40, 0.06);
-  flex: 1;
-  min-width: 180px;
+  padding: 18px 18px 16px;
+  box-shadow: 0 10px 18px rgba(16, 24, 40, 0.08);
+
+  /* responsive-friendly */
+  width: 100%;
+  min-width: 0;
 }
 
 .kpi-top {
