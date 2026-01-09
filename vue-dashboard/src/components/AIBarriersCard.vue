@@ -22,7 +22,7 @@ const barriers = [
 </script>
 
 <template>
-  <div class="relative overflow-hidden rounded-xl border-2 border-amber-300 bg-gradient-to-br from-amber-50 via-yellow-50 to-amber-50 p-6 shadow-lg">
+  <div class="relative overflow-hidden rounded-2xl border border-amber-200 bg-gradient-to-br from-amber-50 via-yellow-50 to-amber-50 p-8 shadow-sm">
     <!-- Decorative background blurs -->
     <div class="absolute -right-32 -top-32 h-64 w-64 rounded-full bg-amber-200 opacity-10 blur-3xl"></div>
     <div class="absolute -bottom-24 -left-24 h-48 w-48 rounded-full bg-yellow-200 opacity-10 blur-3xl"></div>
@@ -46,11 +46,11 @@ const barriers = [
       </div>
 
       <!-- Barriers Grid -->
-      <div class="grid grid-cols-1 gap-4 md:grid-cols-3">
+      <div class="grid grid-cols-1 gap-5 md:grid-cols-3">
         <div
           v-for="(barrier, index) in barriers"
           :key="index"
-          class="group cursor-pointer rounded-lg border-2 border-amber-200 bg-white p-4 transition-all duration-200 hover:border-amber-300 hover:shadow-md"
+          class="group cursor-pointer rounded-xl border border-amber-200 bg-white p-5 transition-all duration-200 hover:border-amber-300 hover:shadow-md"
         >
           <div class="mb-3 flex items-start justify-between">
             <div
@@ -89,7 +89,7 @@ const barriers = [
       </div>
 
       <!-- Footer -->
-      <div class="mt-4 border-t-2 border-amber-200 pt-4">
+      <div class="mt-6 border-t border-amber-200 pt-4">
         <p class="text-xs text-amber-800">
           <span class="font-semibold">AI Analysis:</span> Last updated 2 hours ago • Next scan in 4 hours
         </p>

@@ -41,13 +41,13 @@ import MetricCard from './components/MetricCard.vue'
       </header>
 
       <!-- Site Progression Section -->
-      <section class="mb-6">
+      <section class="mb-8">
         <SiteProgression />
       </section>
 
       <!-- Metrics Section -->
       <section class="mb-8">
-        <div class="flex gap-4 flex-wrap">
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5">
           <MetricCard 
             icon="pulse" 
             label="Active Trials" 
@@ -85,7 +85,7 @@ import MetricCard from './components/MetricCard.vue'
       </section>
 
       <!-- AI-Identified Potential Barriers -->
-      <section class="mb-6">
+      <section class="mb-8">
         <AIBarriersCard />
       </section>
 

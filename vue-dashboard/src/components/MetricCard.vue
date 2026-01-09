@@ -67,16 +67,17 @@ const deltaClass = computed(() => {
   background: #fff;
   border: 1px solid #eef1f6;
   border-radius: 18px;
-  padding: 18px 18px 16px;
-  box-shadow: 0 10px 18px rgba(16, 24, 40, 0.08);
-  min-width: 220px;
+  padding: 22px 24px 20px;
+  box-shadow: 0 4px 12px rgba(16, 24, 40, 0.06);
+  flex: 1;
+  min-width: 180px;
 }
 
 .kpi-top {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  margin-bottom: 14px;
+  margin-bottom: 18px;
 }
 
 .kpi-icon {
@@ -105,12 +106,12 @@ const deltaClass = computed(() => {
 .kpi-delta.is-neutral { color: #667085; }
 
 .kpi-value {
-  font-size: 44px;
+  font-size: 38px;
   line-height: 1;
   font-weight: 700;
   letter-spacing: -0.02em;
   color: #101828;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
 }
 
 .kpi-label {
