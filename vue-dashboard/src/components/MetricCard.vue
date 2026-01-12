@@ -2,7 +2,7 @@
   <div class="kpi-card">
     <div class="kpi-top">
       <div class="kpi-icon">
-        <!-- Simple inline SVG icons (no extra libs needed) -->
+        <!-- Simple inline SVG icons -->
         <svg v-if="icon === 'pulse'" viewBox="0 0 24 24" class="kpi-svg" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M3 12h4l2-6 4 12 2-6h6" />
         </svg>
@@ -41,66 +41,96 @@
 </template>
 
 <script setup>
-import { computed } from "vue";
+import { computed } from 'vue'
 
 const props = defineProps({
-  icon: { type: String, default: "pulse" }, // pulse | users | trend | clock | alert
+  icon: { type: String, default: 'pulse' },
   value: { type: [String, Number], required: true },
   label: { type: String, required: true },
-
-  // Optional: pass either "+18%" or "-3 days"
-  deltaText: { type: String, default: "" },
-
-  // "up" -> green, "down" -> red, "" -> neutral
-  deltaType: { type: String, default: "" }, // up | down | neutral
-});
+  deltaText: { type: String, default: '' },
+  deltaType: { type: String, default: '' },
+})
 
 const deltaClass = computed(() => {
-  if (props.deltaType === "down") return "is-down";
-  if (props.deltaType === "up") return "is-up";
-  return "is-neutral";
-});
+  if (props.deltaType === 'down') return 'is-down'
+  if (props.deltaType === 'up') return 'is-up'
+  return 'is-neutral'
+})
 </script>
 
 <style scoped>
 .kpi-card {
   background: #fff;
   border: 1px solid #eef1f6;
-  border-radius: 18px;
-  padding: 18px 18px 16px;
-  box-shadow: 0 10px 18px rgba(16, 24, 40, 0.08);
-
-  /* responsive-friendly */
+  border-radius: 14px;
+  padding: 12px;
+  box-shadow: 0 4px 12px rgba(16, 24, 40, 0.06);
   width: 100%;
   min-width: 0;
+}
+
+@media (min-width: 768px) {
+  .kpi-card {
+    border-radius: 18px;
+    padding: 18px 18px 16px;
+    box-shadow: 0 10px 18px rgba(16, 24, 40, 0.08);
+  }
 }
 
 .kpi-top {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  margin-bottom: 18px;
+  margin-bottom: 10px;
+}
+
+@media (min-width: 768px) {
+  .kpi-top {
+    margin-bottom: 14px;
+  }
 }
 
 .kpi-icon {
-  width: 46px;
-  height: 46px;
-  border-radius: 14px;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
   background: #eef5ff;
   display: grid;
   place-items: center;
   color: #2b6cff;
 }
 
+@media (min-width: 768px) {
+  .kpi-icon {
+    width: 46px;
+    height: 46px;
+    border-radius: 14px;
+  }
+}
+
 .kpi-svg {
-  width: 22px;
-  height: 22px;
+  width: 18px;
+  height: 18px;
+}
+
+@media (min-width: 768px) {
+  .kpi-svg {
+    width: 22px;
+    height: 22px;
+  }
 }
 
 .kpi-delta {
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 600;
-  margin-top: 6px;
+  margin-top: 4px;
+}
+
+@media (min-width: 768px) {
+  .kpi-delta {
+    font-size: 14px;
+    margin-top: 6px;
+  }
 }
 
 .kpi-delta.is-up { color: #12b76a; }
@@ -108,17 +138,30 @@ const deltaClass = computed(() => {
 .kpi-delta.is-neutral { color: #667085; }
 
 .kpi-value {
-  font-size: 38px;
+  font-size: 28px;
   line-height: 1;
   font-weight: 700;
   letter-spacing: -0.02em;
   color: #101828;
-  margin-bottom: 8px;
+  margin-bottom: 4px;
+}
+
+@media (min-width: 768px) {
+  .kpi-value {
+    font-size: 38px;
+    margin-bottom: 6px;
+  }
 }
 
 .kpi-label {
-  font-size: 16px;
+  font-size: 12px;
   color: #667085;
   font-weight: 500;
+}
+
+@media (min-width: 768px) {
+  .kpi-label {
+    font-size: 14px;
+  }
 }
 </style>

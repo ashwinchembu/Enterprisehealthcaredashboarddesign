@@ -1,34 +1,60 @@
-<script setup lang="ts">
+<template>
+  <div class="rounded-xl border border-slate-100 bg-white p-4 md:p-6 shadow-sm">
+    <h3 class="mb-4 md:mb-6 text-base md:text-lg font-semibold text-slate-900">Ongoing Clinical Trials</h3>
+
+    <div class="space-y-3 md:space-y-4">
+      <div
+        v-for="(trial, index) in trials"
+        :key="index"
+        class="rounded-lg border border-slate-200 p-3 md:p-4 transition-all hover:border-blue-300 hover:shadow-md cursor-pointer"
+        @click="handleTrialClick(trial)"
+      >
+        <div class="flex items-start gap-2 md:gap-3">
+          <div class="rounded-lg bg-purple-50 p-1.5 md:p-2 shrink-0">
+            <span class="text-base md:text-lg">📄</span>
+          </div>
+          <div class="min-w-0 flex-1">
+            <div class="mb-0.5 md:mb-1 text-sm md:text-base font-semibold text-slate-900">{{ trial.name }}</div>
+            <div class="mb-1.5 md:mb-2 text-xs md:text-sm text-slate-600">Protocol: {{ trial.protocol }}</div>
+            <div class="flex flex-wrap items-center gap-1.5 md:gap-2">
+              <span class="rounded bg-slate-100 px-1.5 py-0.5 md:px-2 md:py-1 text-[10px] md:text-xs text-slate-500">
+                {{ trial.phase }}
+              </span>
+              <span
+                :class="[
+                  'inline-flex items-center rounded-full px-2 py-0.5 text-[10px] md:text-xs font-medium',
+                  statusStyles[trial.status]
+                ]"
+              >
+                {{ statusLabels[trial.status] }}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <TrialDetailsModal
+      :trial="selectedTrial"
+      :hospital-name="hospitalName"
+      :hospital-address="hospitalAddress"
+      :is-open="isModalOpen"
+      @close="handleCloseModal"
+    />
+  </div>
+</template>
+
+<script setup>
 import { ref } from 'vue'
 import TrialDetailsModal from './TrialDetailsModal.vue'
 
-interface Contact {
-  name: string
-  role: string
-  email: string
-  phone: string
-}
-
-interface Trial {
-  name: string
-  phase: string
-  status: 'recruiting' | 'on-hold' | 'active'
-  protocol: string
-  enrolled: number
-  siteTarget: string
-  targetPercentage: string
-  activationDate: string
-  lastMonitoringVisit: string
-  contacts: Contact[]
-}
-
-const selectedTrial = ref<Trial | null>(null)
+const selectedTrial = ref(null)
 const isModalOpen = ref(false)
 
-const hospitalName = "City General Hospital"
-const hospitalAddress = "456 Health Ave, MedCity, USA"
+const hospitalName = 'City General Hospital'
+const hospitalAddress = '456 Health Ave, MedCity, USA'
 
-const trials: Trial[] = [
+const trials = [
   {
     name: 'Cardiovascular Outcomes Study',
     phase: 'Phase III',
@@ -143,7 +169,7 @@ const statusLabels = {
   active: 'Active',
 }
 
-function handleTrialClick(trial: Trial) {
+function handleTrialClick(trial) {
   selectedTrial.value = trial
   isModalOpen.value = true
 }
@@ -153,49 +179,3 @@ function handleCloseModal() {
   selectedTrial.value = null
 }
 </script>
-
-<template>
-  <div class="rounded-xl border border-slate-100 bg-white p-6 shadow-sm">
-    <h3 class="mb-6 text-lg font-semibold text-slate-900">Ongoing Clinical Trials</h3>
-
-    <div class="space-y-4">
-      <div
-        v-for="(trial, index) in trials"
-        :key="index"
-        class="rounded-lg border border-slate-200 p-4 transition-all hover:border-blue-300 hover:shadow-md cursor-pointer"
-        @click="handleTrialClick(trial)"
-      >
-        <div class="flex items-start gap-3">
-          <div class="rounded-lg bg-purple-50 p-2">
-            <span class="text-lg">📄</span>
-          </div>
-          <div class="min-w-0 flex-1">
-            <div class="mb-1 font-semibold text-slate-900">{{ trial.name }}</div>
-            <div class="mb-2 text-sm text-slate-600">Protocol: {{ trial.protocol }}</div>
-            <div class="flex flex-wrap items-center gap-2">
-              <span class="rounded bg-slate-100 px-2 py-1 text-xs text-slate-500">
-                {{ trial.phase }}
-              </span>
-              <span
-                :class="[
-                  'inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium',
-                  statusStyles[trial.status]
-                ]"
-              >
-                {{ statusLabels[trial.status] }}
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <TrialDetailsModal
-      :trial="selectedTrial"
-      :hospital-name="hospitalName"
-      :hospital-address="hospitalAddress"
-      :is-open="isModalOpen"
-      @close="handleCloseModal"
-    />
-  </div>
-</template>
